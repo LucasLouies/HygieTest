@@ -2,7 +2,9 @@ import { API } from "../api";
 
 export type Biere = {
     "id": string,
-    "name": string
+    "name": string,
+    "degre": number,
+    "prix": number
 }
 
 export type BiereResponse = {

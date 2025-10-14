@@ -31,6 +31,8 @@ namespace HygieTestAPI.Controllers
             var biereEntity = new Bieres
             {
                 Name = addBiereDTO.Name,
+                Degre = addBiereDTO.Degre,
+                Prix = addBiereDTO.Prix,
             };
 
             dbContext.bieres.Add(biereEntity);

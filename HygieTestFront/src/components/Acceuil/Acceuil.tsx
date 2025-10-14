@@ -14,7 +14,6 @@ export function Acceuil() {
             } else {
                 setBieres(tmpBieres)
                 console.log(tmpBieres);
-
             }
         }
 

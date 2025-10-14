@@ -132,3 +132,4 @@ C:\Users\lucas\Desktop\Test Hygie\HygieTestAPI\HygieTestAPI\obj\Debug\net8.0\Hyg
 C:\Users\lucas\Desktop\Test Hygie\HygieTestAPI\HygieTestAPI\obj\Debug\net8.0\ref\HygieTestAPI.dll
 C:\Users\lucas\Desktop\Test Hygie\HygieTestAPI\HygieTestAPI\bin\Debug\net8.0\Npgsql.dll
 C:\Users\lucas\Desktop\Test Hygie\HygieTestAPI\HygieTestAPI\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\lucas\Desktop\Test Hygie\HygieTestAPI\HygieTestAPI\obj\Debug\net8.0\HygieTestAPI.sourcelink.json

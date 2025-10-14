@@ -8,10 +8,10 @@ export function Header() {
 
     return <nav className="flex flex-row w-full p-2 bg-slate-600">
         <a href="/" className={pathname == "/" ? selectedStyle : baseStyle}>
-            Home
+            Acceuil
         </a>
-        <a href="/Classement" className={pathname == "/Classement" ? selectedStyle : baseStyle}>
-            Classements
+        <a href="/AjouterBiere" className={pathname == "/AjouterBiere" ? selectedStyle : baseStyle}>
+            Ajouter Biere
         </a>
         <a href="/Hopitaux" className={pathname == "/Hopitaux" ? selectedStyle : baseStyle}>
             Hopitaux
