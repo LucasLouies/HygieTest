@@ -1,0 +1,6 @@
+@HygieTestAPI_HostAddress = http://localhost:5072
+
+GET {{HygieTestAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,207 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|c:\\users\\lucas\\desktop\\test hygie\\hygietestapi\\hygietestapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|solutionrelative:hygietestapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|c:\\users\\lucas\\desktop\\test hygie\\hygietestapi\\hygietestapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|solutionrelative:hygietestapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|c:\\users\\lucas\\desktop\\test hygie\\hygietestapi\\hygietestapi\\hygietestapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|solutionrelative:hygietestapi\\hygietestapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|c:\\users\\lucas\\desktop\\test hygie\\hygietestapi\\hygietestapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|solutionrelative:hygietestapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|c:\\users\\lucas\\desktop\\test hygie\\hygietestapi\\hygietestapi\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|solutionrelative:hygietestapi\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|c:\\users\\lucas\\desktop\\test hygie\\hygietestapi\\hygietestapi\\controllers\\bierescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|solutionrelative:hygietestapi\\controllers\\bierescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|c:\\users\\lucas\\desktop\\test hygie\\hygietestapi\\hygietestapi\\controllers\\brasseriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|solutionrelative:hygietestapi\\controllers\\brasseriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|c:\\users\\lucas\\desktop\\test hygie\\hygietestapi\\hygietestapi\\models\\dto\\addbieredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|solutionrelative:hygietestapi\\models\\dto\\addbieredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|c:\\users\\lucas\\desktop\\test hygie\\hygietestapi\\hygietestapi\\models\\dto\\addbrasseriedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|solutionrelative:hygietestapi\\models\\dto\\addbrasseriedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|c:\\users\\lucas\\desktop\\test hygie\\hygietestapi\\hygietestapi\\models\\entities\\bieres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|solutionrelative:hygietestapi\\models\\entities\\bieres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|c:\\users\\lucas\\desktop\\test hygie\\hygietestapi\\hygietestapi\\models\\entities\\brasseries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A01A8C-64D7-4EFE-AEBF-FD494CE3EC5A}|HygieTestAPI\\HygieTestAPI.csproj|solutionrelative:hygietestapi\\models\\entities\\brasseries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "HygieTestAPI\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "HygieTestAPI\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABwAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-14T00:25:11.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "HygieTestAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\appsettings.json",
+              "RelativeToolTip": "HygieTestAPI\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-14T00:24:35.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AddBiereDTO.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Models\\DTO\\AddBiereDTO.cs",
+              "RelativeDocumentMoniker": "HygieTestAPI\\Models\\DTO\\AddBiereDTO.cs",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Models\\DTO\\AddBiereDTO.cs",
+              "RelativeToolTip": "HygieTestAPI\\Models\\DTO\\AddBiereDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T22:58:50.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BieresController.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Controllers\\BieresController.cs",
+              "RelativeDocumentMoniker": "HygieTestAPI\\Controllers\\BieresController.cs",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Controllers\\BieresController.cs",
+              "RelativeToolTip": "HygieTestAPI\\Controllers\\BieresController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwBwAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T22:54:30.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "HygieTestAPI\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "HygieTestAPI\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T22:53:04.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HygieTestAPI.http",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\HygieTestAPI.http",
+              "RelativeDocumentMoniker": "HygieTestAPI\\HygieTestAPI.http",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\HygieTestAPI.http",
+              "RelativeToolTip": "HygieTestAPI\\HygieTestAPI.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-10-13T22:52:57.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Program.cs",
+              "RelativeDocumentMoniker": "HygieTestAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Program.cs",
+              "RelativeToolTip": "HygieTestAPI\\Program.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T22:52:53.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Bieres.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Models\\Entities\\Bieres.cs",
+              "RelativeDocumentMoniker": "HygieTestAPI\\Models\\Entities\\Bieres.cs",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Models\\Entities\\Bieres.cs",
+              "RelativeToolTip": "HygieTestAPI\\Models\\Entities\\Bieres.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T22:52:36.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AddBrasserieDTO.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Models\\DTO\\AddBrasserieDTO.cs",
+              "RelativeDocumentMoniker": "HygieTestAPI\\Models\\DTO\\AddBrasserieDTO.cs",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Models\\DTO\\AddBrasserieDTO.cs",
+              "RelativeToolTip": "HygieTestAPI\\Models\\DTO\\AddBrasserieDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T22:38:16.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BrasseriesController.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Controllers\\BrasseriesController.cs",
+              "RelativeDocumentMoniker": "HygieTestAPI\\Controllers\\BrasseriesController.cs",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Controllers\\BrasseriesController.cs",
+              "RelativeToolTip": "HygieTestAPI\\Controllers\\BrasseriesController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwCQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T22:15:48.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Brasseries.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Models\\Entities\\Brasseries.cs",
+              "RelativeDocumentMoniker": "HygieTestAPI\\Models\\Entities\\Brasseries.cs",
+              "ToolTip": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\Models\\Entities\\Brasseries.cs",
+              "RelativeToolTip": "HygieTestAPI\\Models\\Entities\\Brasseries.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T21:39:14.255Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

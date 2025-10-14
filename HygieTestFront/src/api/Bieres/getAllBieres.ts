@@ -1,0 +1,20 @@
+import { API } from "../api";
+
+export type Biere = {
+    "id": string,
+    "name": string
+}
+
+export type BiereResponse = {
+    "bieres": Biere[],
+}
+
+export async function getAllBieres() {
+    const response = await API.GET("Bieres");
+    if (response.ok) {
+        const reponseBiere = await response.json() as BiereResponse;
+        return reponseBiere;
+    }
+
+    return null;
+}
