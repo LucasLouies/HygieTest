@@ -1,11 +1,77 @@
 {
   "Version": 1,
-  "Hash": "/f9Uk54v6prBePsDx4WoYaL2whj9rhYy5PF+Ej17gr0=",
+  "Hash": "tsaIfEOSIqmlarT4SFtKLCnPAkZ0bkEO8HshIrfGvDk=",
   "Source": "HygieTestAPI",
   "BasePath": "_content/HygieTestAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "HygieTestAPI\\wwwroot",
+      "Source": "HygieTestAPI",
+      "ContentRoot": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\",
+      "BasePath": "_content/HygieTestAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\4b30a779-1e8e-4ce9-9dd5-9d802246491f.jpg",
+      "SourceId": "HygieTestAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\",
+      "BasePath": "_content/HygieTestAPI",
+      "RelativePath": "images/4b30a779-1e8e-4ce9-9dd5-9d802246491f.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\4b30a779-1e8e-4ce9-9dd5-9d802246491f.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\7c5c8137-a6d4-49d9-9583-f035f43f0036.jpg",
+      "SourceId": "HygieTestAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\",
+      "BasePath": "_content/HygieTestAPI",
+      "RelativePath": "images/7c5c8137-a6d4-49d9-9583-f035f43f0036.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\7c5c8137-a6d4-49d9-9583-f035f43f0036.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\dcb936fb-8350-425d-a143-85ae32e14dbf.jpg",
+      "SourceId": "HygieTestAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\",
+      "BasePath": "_content/HygieTestAPI",
+      "RelativePath": "images/dcb936fb-8350-425d-a143-85ae32e14dbf.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\dcb936fb-8350-425d-a143-85ae32e14dbf.jpg"
+    }
+  ]
 }

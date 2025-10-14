@@ -3,20 +3,31 @@ import { CustomInput } from "../ui/CustomInput"
 import { Header } from "../Header";
 import { CustomButton } from "../ui/CustomButton";
 import { postBiere, type PostBiere } from "../../api/Bieres/postBiere";
+import { CustomFileUploader } from "../ui/CustomFileUploader";
 
-type AjoutBiereError = "NoError" | "champVide" | "ApiError" | "DonneeIncorrecte";
+type AjoutBiereError = "NoError" | "champVide" | "ApiError" | "DonneeIncorrecte" | "ImageVide";
 
 export function AjoutBiere() {
     const [nomBiere, setNomBiere] = useState("");
     const [degre, setDegre] = useState("");
     const [prix, setPrix] = useState("");
+    const [logo, setLogo] = useState<File | null>(null)
     const [isloading, setIsLoading] = useState(false);
     const [error, setError] = useState<AjoutBiereError>("NoError");
 
     const envoyerBiere = async () => {
         setError("NoError")
+        if (isloading) {
+            return;
+        }
+
         if (prix == "" || degre == "" || nomBiere == "") {
             setError("champVide");
+            return;
+        }
+
+        if (logo == null) {
+            setError("ImageVide")
             return;
         }
 
@@ -32,7 +43,8 @@ export function AjoutBiere() {
         const tmpBiere: PostBiere = {
             name: nomBiere,
             degre: degreNum,
-            prix: prixNum
+            prix: prixNum,
+            logoFile: logo
         }
         const result = postBiere(tmpBiere);
 
@@ -53,10 +65,12 @@ export function AjoutBiere() {
                     <CustomInput text={nomBiere} setText={setNomBiere} placeholder="Nom" className="w-full" label="Nom :" />
                     <CustomInput text={degre} setText={setDegre} placeholder="Degré" className="w-full" type="number" label="Degré :" />
                     <CustomInput text={prix} setText={setPrix} placeholder="Prix" className="w-full" type="number" label="Prix :" />
+                    <CustomFileUploader label="logo :" setFile={setLogo} />
 
                     {error == "ApiError" && <p className="text-red-600 font-semibold">ERREUR LORS DE L'ENVOI DES DONNÉES</p>}
                     {error == "champVide" && <p className="text-red-600 font-semibold">UN OU PLUSIEURS CHAMPS SONT VIDES</p>}
                     {error == "DonneeIncorrecte" && <p className="text-red-600 font-semibold">FORMAT DE DONNEE INCORRECTE</p>}
+                    {error == "ImageVide" && <p className="text-red-600 font-semibold">IMAGE NON FOURNIE OU AU MAUVAIS FORMAT</p>}
 
                     {isloading ? <p className="text-gray-600 italic">Envoi en cours...</p>
                         : <CustomButton label="Envoyer" action={envoyerBiere} />}

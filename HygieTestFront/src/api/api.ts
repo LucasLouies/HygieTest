@@ -35,6 +35,15 @@ export class API {
         return await fetch(url + chaine, request);
     }
 
+    public static async POSTWITHFILE(chaine: string, body: FormData) {
+        let request: RequestInit = {
+            method: "POST",
+            body: body,
+        };
+
+        return await fetch(url + chaine, request);
+    }
+
     public static async DELETE(chaine: string, body?: unknown) {
         let request: RequestInit = {
             method: 'DELETE',
