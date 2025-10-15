@@ -28,6 +28,9 @@ namespace HygieTestAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("BrasseriesId")
+                        .HasColumnType("uuid");
+
                     b.Property<int>("Degre")
                         .HasColumnType("integer");
 
@@ -43,6 +46,8 @@ namespace HygieTestAPI.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BrasseriesId");
 
                     b.ToTable("bieres");
                 });
@@ -64,6 +69,32 @@ namespace HygieTestAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("brasseries");
+                });
+
+            modelBuilder.Entity("HygieTestAPI.Models.Entities.Grossistes", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("grossistes");
+                });
+
+            modelBuilder.Entity("HygieTestAPI.Models.Entities.Bieres", b =>
+                {
+                    b.HasOne("HygieTestAPI.Models.Entities.Brasseries", "Brasserie")
+                        .WithMany()
+                        .HasForeignKey("BrasseriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Brasserie");
                 });
 #pragma warning restore 612, 618
         }

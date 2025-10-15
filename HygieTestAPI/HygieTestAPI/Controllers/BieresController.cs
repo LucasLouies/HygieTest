@@ -38,7 +38,7 @@ namespace HygieTestAPI.Controllers
                 Directory.CreateDirectory(uploadsFolder);
 
             var fileName = $"{Guid.NewGuid()}{Path.GetExtension(addBiereDTO.LogoFile.FileName)}";
-            var filePath = Path.Combine(uploadsFolder, fileName);
+            var filePath = Path.Combine(uploadsFolder+ "/Bieres/", fileName);
 
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
@@ -50,7 +50,9 @@ namespace HygieTestAPI.Controllers
                 Name = addBiereDTO.Name,
                 Degre = addBiereDTO.Degre,
                 Prix = addBiereDTO.Prix,
-                Logo = $"/images/{fileName}"
+                Logo = $"/images/Bieres/{fileName}",
+                BrasseriesId = addBiereDTO.BrasserieId
+                
             };
 
             dbContext.Add(biereEntity);

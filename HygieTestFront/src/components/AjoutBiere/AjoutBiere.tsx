@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { CustomInput } from "../ui/CustomInput"
 import { Header } from "../Header";
 import { CustomButton } from "../ui/CustomButton";
 import { postBiere, type PostBiere } from "../../api/Bieres/postBiere";
 import { CustomFileUploader } from "../ui/CustomFileUploader";
+import { getAllBrasseries, type Brasserie } from "../../api/Brasseries/getAllBrasseries";
 
 type AjoutBiereError = "NoError" | "champVide" | "ApiError" | "DonneeIncorrecte" | "ImageVide";
 
@@ -14,6 +15,26 @@ export function AjoutBiere() {
     const [logo, setLogo] = useState<File | null>(null)
     const [isloading, setIsLoading] = useState(false);
     const [error, setError] = useState<AjoutBiereError>("NoError");
+    const [brasseries, setBrasseries] = useState<Brasserie[] | null>(null);
+    const [selectedBrasserie, setSelectedBrasserie] = useState<Brasserie | null>(null);
+
+
+
+    useLayoutEffect(() => {
+        const initBrasseries = async () => {
+            const tmpBrasseries = await getAllBrasseries();
+            if (tmpBrasseries == null) {
+                setError("ApiError");
+            } else {
+                setBrasseries(tmpBrasseries)
+                if (tmpBrasseries.length > 0)
+                    setSelectedBrasserie(tmpBrasseries[0])
+            }
+        }
+
+        initBrasseries()
+    }, [])
+
 
     const envoyerBiere = async () => {
         setError("NoError")
@@ -26,7 +47,7 @@ export function AjoutBiere() {
             return;
         }
 
-        if (logo == null) {
+        if (logo == null || selectedBrasserie == null) {
             setError("ImageVide")
             return;
         }
@@ -44,7 +65,8 @@ export function AjoutBiere() {
             name: nomBiere,
             degre: degreNum,
             prix: prixNum,
-            logoFile: logo
+            logoFile: logo,
+            brasserieId: selectedBrasserie.id
         }
         const result = postBiere(tmpBiere);
 
@@ -65,6 +87,27 @@ export function AjoutBiere() {
                     <CustomInput text={nomBiere} setText={setNomBiere} placeholder="Nom" className="w-full" label="Nom :" />
                     <CustomInput text={degre} setText={setDegre} placeholder="Degré" className="w-full" type="number" label="Degré :" />
                     <CustomInput text={prix} setText={setPrix} placeholder="Prix" className="w-full" type="number" label="Prix :" />
+                    {brasseries && brasseries.length > 0 && (
+                        <label>
+                            Brasserie :
+                            <select
+                                value={selectedBrasserie?.id || ""}
+                                onChange={(e) => {
+                                    const selected = brasseries.find(b => b.id === e.target.value);
+                                    setSelectedBrasserie(selected!);
+                                    console.log("Selected:", selected?.name);
+                                }}
+                            >
+                                <option value="">-- Choisir une brasserie --</option>
+                                {brasseries.map((brasserie) => (
+                                    <option key={brasserie.id} value={brasserie.id}>
+                                        {brasserie.name}
+                                    </option>
+                                ))}
+                            </select>
+                        </label>
+
+                    )}
                     <CustomFileUploader label="logo :" setFile={setLogo} />
 
                     {error == "ApiError" && <p className="text-red-600 font-semibold">ERREUR LORS DE L'ENVOI DES DONNÉES</p>}

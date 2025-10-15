@@ -27,12 +27,29 @@ namespace HygieTestAPI.Controllers
         }
 
         [HttpPost]
-        public ActionResult PostBrasserie(AddBrasserieDTO addBrasserieDTO)
+        public async Task<ActionResult> PostBrasserie([FromForm]AddBrasserieDTO addBrasserieDTO)
         {
+            if (addBrasserieDTO.LogoFile == null || addBrasserieDTO.LogoFile.Length == 0) 
+            {
+                return BadRequest("No file Uploaded");
+            }
+
+            var uploadsFolder = Path.Combine("wwwroot/images");
+            if (!Directory.Exists(uploadsFolder))
+                Directory.CreateDirectory(uploadsFolder);
+
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(addBrasserieDTO.LogoFile.FileName)}";
+            var filePath = Path.Combine(uploadsFolder + "/Brasseries/", fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await addBrasserieDTO.LogoFile.CopyToAsync(stream);
+            }
+
             var brasserieEntity = new Brasseries()
             {
                 Name = addBrasserieDTO.Name,
-                Logo = addBrasserieDTO.Logo,
+                Logo = $"/images/Brasseries/{fileName}",
             };
 
             dbContext.brasseries.Add(brasserieEntity);

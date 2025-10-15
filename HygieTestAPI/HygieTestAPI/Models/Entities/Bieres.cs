@@ -7,5 +7,7 @@
         public required int Degre { get; set; }
         public required float Prix { get; set; }
         public required string Logo{ get; set; }
+        public Guid BrasseriesId { get; set; }
+        public Brasseries Brasserie { get; set; }
     }
 }

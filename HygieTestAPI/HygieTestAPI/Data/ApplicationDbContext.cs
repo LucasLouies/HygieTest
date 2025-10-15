@@ -12,5 +12,7 @@ namespace HygieTestAPI.Data
         public DbSet<Brasseries> brasseries { get; set; }
 
         public DbSet<Bieres> bieres { get; set; }
+
+        public DbSet<Grossistes> grossistes { get; set; }
     }
 }

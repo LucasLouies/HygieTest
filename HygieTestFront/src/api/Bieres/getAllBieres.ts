@@ -4,17 +4,14 @@ export type Biere = {
     "id": string,
     "name": string,
     "degre": number,
-    "prix": number
-}
-
-export type BiereResponse = {
-    "bieres": Biere[],
+    "prix": number,
+    "logo": string
 }
 
 export async function getAllBieres() {
     const response = await API.GET("Bieres");
     if (response.ok) {
-        const reponseBiere = await response.json() as BiereResponse;
+        const reponseBiere = await response.json() as Biere[];
         return reponseBiere;
     }
 

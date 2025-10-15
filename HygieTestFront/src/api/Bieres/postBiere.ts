@@ -5,7 +5,8 @@ export type PostBiere = {
     "name": string,
     "degre": number,
     "prix": number,
-    "logoFile": File
+    "logoFile": File,
+    "brasserieId": string
 }
 
 export type PostBiereResponse = {
@@ -18,8 +19,7 @@ export async function postBiere(biere: PostBiere) {
     formData.append("Degre", biere.degre.toString());
     formData.append("Prix", biere.prix.toString());
     formData.append("LogoFile", biere.logoFile);
-
-    console.log(formData);
+    formData.append("BrasserieId", biere.brasserieId);
 
     const response = await API.POSTWITHFILE("Bieres", formData);
 

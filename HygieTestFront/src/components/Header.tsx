@@ -11,22 +11,19 @@ export function Header() {
             Acceuil
         </a>
         <a href="/AjouterBiere" className={pathname == "/AjouterBiere" ? selectedStyle : baseStyle}>
-            Ajouter Biere
+            Biere
         </a>
-        <a href="/Hopitaux" className={pathname == "/Hopitaux" ? selectedStyle : baseStyle}>
-            Hopitaux
+        <a href="/Brasserie" className={pathname == "/Brasserie" ? selectedStyle : baseStyle}>
+            Brasserie
         </a>
-        <a href="/Place" className={pathname == "/Place" ? selectedStyle : baseStyle}>
-            Places
+        <a href="/Grossiste" className={pathname == "/Grossiste" ? selectedStyle : baseStyle}>
+            Grossiste
         </a>
         <a href="/Preference" className={pathname == "/Preference" ? selectedStyle : baseStyle}>
-            Preferences
-        </a>
-        <a href="/Resultat" className={pathname == "/Resultat" ? selectedStyle : baseStyle}>
-            Resultats
+            Devis
         </a>
         <a href="/Service" className={pathname == "/Service" ? selectedStyle : baseStyle}>
-            Services
+            Connexion
         </a>
     </nav>
 }
