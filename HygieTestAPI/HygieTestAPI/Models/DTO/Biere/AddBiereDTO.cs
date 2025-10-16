@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace HygieTestAPI.Models.DTO
+namespace HygieTestAPI.Models.DTO.Biere
 {
     public class AddBiereDTO
     {

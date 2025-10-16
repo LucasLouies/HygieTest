@@ -1,4 +1,4 @@
-﻿namespace HygieTestAPI.Models.DTO
+﻿namespace HygieTestAPI.Models.DTO.Grossite
 {
     public class AddGrossisteDTO
     {

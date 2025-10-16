@@ -1,8 +1,9 @@
 ﻿using HygieTestAPI.Data;
 using HygieTestAPI.Models;
-using HygieTestAPI.Models.DTO;
+using HygieTestAPI.Models.DTO.Biere;
 using HygieTestAPI.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HygieTestAPI.Controllers
 {
@@ -18,7 +19,7 @@ namespace HygieTestAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetAllBieres() 
+        public ActionResult GetAllBieres()
         {
             var allBieres = dbContext.bieres.ToList();
 
@@ -38,7 +39,7 @@ namespace HygieTestAPI.Controllers
                 Directory.CreateDirectory(uploadsFolder);
 
             var fileName = $"{Guid.NewGuid()}{Path.GetExtension(addBiereDTO.LogoFile.FileName)}";
-            var filePath = Path.Combine(uploadsFolder+ "/Bieres/", fileName);
+            var filePath = Path.Combine(uploadsFolder + "/Bieres/", fileName);
 
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
@@ -52,7 +53,7 @@ namespace HygieTestAPI.Controllers
                 Prix = addBiereDTO.Prix,
                 Logo = $"/images/Bieres/{fileName}",
                 BrasseriesId = addBiereDTO.BrasserieId
-                
+
             };
 
             dbContext.Add(biereEntity);
@@ -61,6 +62,41 @@ namespace HygieTestAPI.Controllers
             return Ok(biereEntity);
         }
 
+        [HttpGet]
+        [Route("{biereId}")]
+        public async Task<ActionResult> getBiereFromId(Guid biereId) 
+        { 
+            var Biere = await dbContext.bieres.Where(b => b.Id == biereId).ToListAsync();
+
+            return Ok(Biere[0]);
+        }
+
+        [HttpGet]
+        [Route("Grossiste/{grossisteId}")]
+        public async Task<ActionResult> GetBieresFromGrossiste(Guid grossisteId) 
+        {
+            var stockGrossiste = await dbContext.stocks
+                .Where(s => s.GrossistesId == grossisteId)
+                .ToListAsync();
+
+            var listBiere = new List<Bieres>();
+
+            foreach (var stock in stockGrossiste)
+            {
+                var Biere = await dbContext.bieres.FirstAsync();
+                listBiere.Add(Biere);
+            }
+
+            return Ok(listBiere);
+        }
+
+        [HttpGet]
+        [Route("Brasserie{brasserieId}")]
+        public async Task<ActionResult> getBieresFromBrasserie(Guid brasserieId)
+        {
+            var bieresFromBrasserie = await dbContext.bieres.Where(b => b.BrasseriesId == brasserieId).ToListAsync();
+            return Ok(bieresFromBrasserie);
+        }
 
     }
 }

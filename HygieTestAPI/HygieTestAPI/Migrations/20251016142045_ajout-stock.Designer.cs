@@ -3,6 +3,7 @@ using System;
 using HygieTestAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HygieTestAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251016142045_ajout-stock")]
+    partial class ajoutstock
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,6 +49,8 @@ namespace HygieTestAPI.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BrasseriesId");
 
                     b.ToTable("bieres");
                 });
@@ -84,20 +89,15 @@ namespace HygieTestAPI.Migrations
                     b.ToTable("grossistes");
                 });
 
-            modelBuilder.Entity("HygieTestAPI.Models.Entities.Stocks", b =>
+            modelBuilder.Entity("HygieTestAPI.Models.Entities.Bieres", b =>
                 {
-                    b.Property<Guid>("BieresId")
-                        .HasColumnType("uuid");
+                    b.HasOne("HygieTestAPI.Models.Entities.Brasseries", "Brasserie")
+                        .WithMany()
+                        .HasForeignKey("BrasseriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<Guid>("GrossistesId")
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("Quantite")
-                        .HasColumnType("integer");
-
-                    b.HasKey("BieresId", "GrossistesId");
-
-                    b.ToTable("stocks");
+                    b.Navigation("Brasserie");
                 });
 #pragma warning restore 612, 618
         }

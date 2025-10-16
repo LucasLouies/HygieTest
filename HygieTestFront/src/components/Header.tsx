@@ -19,7 +19,10 @@ export function Header() {
         <a href="/Grossiste" className={pathname == "/Grossiste" ? selectedStyle : baseStyle}>
             Grossiste
         </a>
-        <a href="/Preference" className={pathname == "/Preference" ? selectedStyle : baseStyle}>
+        <a href="/Stock" className={pathname == "/Stock" ? selectedStyle : baseStyle}>
+            Stock
+        </a>
+        <a href="/Devis" className={pathname == "/Devis" ? selectedStyle : baseStyle}>
             Devis
         </a>
         <a href="/Service" className={pathname == "/Service" ? selectedStyle : baseStyle}>

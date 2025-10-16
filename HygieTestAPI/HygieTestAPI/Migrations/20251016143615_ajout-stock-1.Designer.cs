@@ -3,6 +3,7 @@ using System;
 using HygieTestAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HygieTestAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251016143615_ajout-stock-1")]
+    partial class ajoutstock1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,6 +49,8 @@ namespace HygieTestAPI.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BrasseriesId");
 
                     b.ToTable("bieres");
                 });
@@ -97,7 +102,39 @@ namespace HygieTestAPI.Migrations
 
                     b.HasKey("BieresId", "GrossistesId");
 
+                    b.HasIndex("GrossistesId");
+
                     b.ToTable("stocks");
+                });
+
+            modelBuilder.Entity("HygieTestAPI.Models.Entities.Bieres", b =>
+                {
+                    b.HasOne("HygieTestAPI.Models.Entities.Brasseries", "Brasserie")
+                        .WithMany()
+                        .HasForeignKey("BrasseriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Brasserie");
+                });
+
+            modelBuilder.Entity("HygieTestAPI.Models.Entities.Stocks", b =>
+                {
+                    b.HasOne("HygieTestAPI.Models.Entities.Bieres", "Biere")
+                        .WithMany()
+                        .HasForeignKey("BieresId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HygieTestAPI.Models.Entities.Grossistes", "Grossiste")
+                        .WithMany()
+                        .HasForeignKey("GrossistesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Biere");
+
+                    b.Navigation("Grossiste");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,5 +1,5 @@
 ﻿using HygieTestAPI.Data;
-using HygieTestAPI.Models.DTO;
+using HygieTestAPI.Models.DTO.Brasserie;
 using HygieTestAPI.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
