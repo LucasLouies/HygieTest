@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Bieres\\97e8b2dd-283d-46dd-b9f4-436e00d0f71b.png",
+      "PackagePath": "staticwebassets\\images\\Bieres\\97e8b2dd-283d-46dd-b9f4-436e00d0f71b.png"
+    },
+    {
       "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Bieres\\c9ad43d8-c614-43bb-95a0-61dd87dcc819.jpg",
       "PackagePath": "staticwebassets\\images\\Bieres\\c9ad43d8-c614-43bb-95a0-61dd87dcc819.jpg"
     },

@@ -83,16 +83,16 @@ namespace HygieTestAPI.Controllers
 
             foreach (var stock in stockGrossiste)
             {
-                var Biere = await dbContext.bieres.FirstAsync();
-                listBiere.Add(Biere);
+                var Biere = await dbContext.bieres.Where(b => b.Id == stock.BieresId).ToListAsync();
+                listBiere.Add(Biere[0]);
             }
 
             return Ok(listBiere);
         }
 
         [HttpGet]
-        [Route("Brasserie{brasserieId}")]
-        public async Task<ActionResult> getBieresFromBrasserie(Guid brasserieId)
+        [Route("Brasserie/{brasserieId}")]
+        public async Task<ActionResult> GetBieresFromBrasserie(Guid brasserieId)
         {
             var bieresFromBrasserie = await dbContext.bieres.Where(b => b.BrasseriesId == brasserieId).ToListAsync();
             return Ok(bieresFromBrasserie);

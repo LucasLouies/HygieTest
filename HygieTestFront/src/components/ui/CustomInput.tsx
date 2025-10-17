@@ -6,10 +6,11 @@ type TextInputProps = {
     text: string;
     setText: (newtext: string) => void;
     placeholder: string;
-    className?: string
+    className?: string,
+    labelAndInputClose?: boolean
 }
 
-export function CustomInput({ text, setText, placeholder, className, type, label }: TextInputProps) {
+export function CustomInput({ text, setText, placeholder, className, type, label, labelAndInputClose }: TextInputProps) {
     return <>
         <div className="w-full flex items-center space-x-4">
 
@@ -17,11 +18,11 @@ export function CustomInput({ text, setText, placeholder, className, type, label
                 <p >{label}</p>
             </div>
 
-            <div className="flex-8">
+            <div className={labelAndInputClose ? "flex-1" : "flex-8"}>
                 <input type={type ? type : "text"}
                     value={text}
                     onChange={(e) => setText(e.target.value)}
-                    className={className + " border rounded p-2 w-1/4 mt-2 mb-2"}
+                    className={className + " border rounded p-2 w-1/4 mt-2 mb-2 min-w-20"}
                     placeholder={placeholder} />
             </div>
         </div>

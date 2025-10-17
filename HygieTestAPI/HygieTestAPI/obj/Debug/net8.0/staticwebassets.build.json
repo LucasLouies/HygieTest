@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "g/j6apY471eLaFj8VhiFtR7mjp8ZmwQnZ/N2Pogyvpo=",
+  "Hash": "kE0lDhDsNYrBOdCnGHvpLtaT/MRO2wz6FFXMgfkwkA8=",
   "Source": "HygieTestAPI",
   "BasePath": "_content/HygieTestAPI",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Bieres\\97e8b2dd-283d-46dd-b9f4-436e00d0f71b.png",
+      "SourceId": "HygieTestAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\",
+      "BasePath": "_content/HygieTestAPI",
+      "RelativePath": "images/Bieres/97e8b2dd-283d-46dd-b9f4-436e00d0f71b.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Bieres\\97e8b2dd-283d-46dd-b9f4-436e00d0f71b.png"
+    },
     {
       "Identity": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Bieres\\c9ad43d8-c614-43bb-95a0-61dd87dcc819.jpg",
       "SourceId": "HygieTestAPI",
