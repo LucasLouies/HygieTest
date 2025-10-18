@@ -5,7 +5,9 @@ export type Biere = {
     "name": string,
     "degre": number,
     "prix": number,
-    "logo": string
+    "logo": string,
+    "brasseriesId": string
+
 }
 
 export async function getAllBieres() {

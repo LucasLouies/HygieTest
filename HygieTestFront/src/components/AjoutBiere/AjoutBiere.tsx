@@ -5,6 +5,7 @@ import { CustomButton } from "../ui/CustomButton";
 import { postBiere, type PostBiere } from "../../api/Bieres/postBiere";
 import { CustomFileUploader } from "../ui/CustomFileUploader";
 import { getAllBrasseries, type Brasserie } from "../../api/Brasseries/getAllBrasseries";
+import { CustomText } from "../ui/CustomText";
 
 type AjoutBiereError = "NoError" | "champVide" | "ApiError" | "DonneeIncorrecte" | "ImageVide";
 
@@ -17,6 +18,7 @@ export function AjoutBiere() {
     const [error, setError] = useState<AjoutBiereError>("NoError");
     const [brasseries, setBrasseries] = useState<Brasserie[] | null>(null);
     const [selectedBrasserie, setSelectedBrasserie] = useState<Brasserie | null>(null);
+    const [ajoutReussi, setAjoutReussi] = useState(false);
 
 
 
@@ -37,6 +39,7 @@ export function AjoutBiere() {
 
 
     const envoyerBiere = async () => {
+        setAjoutReussi(false)
         setError("NoError")
         if (isloading) {
             return;
@@ -48,12 +51,14 @@ export function AjoutBiere() {
         }
 
         if (logo == null || selectedBrasserie == null) {
-            setError("ImageVide")
+            setError("ImageVide");
             return;
         }
 
         const degreNum = Number(degre);
-        const prixNum = Number(prix)
+        const prixNum = Number(prix);
+        console.log(prixNum);
+
 
         if (isNaN(degreNum) || isNaN(prixNum)) {
             setError("DonneeIncorrecte");
@@ -75,50 +80,58 @@ export function AjoutBiere() {
         }
 
         setIsLoading(false);
+        setAjoutReussi(true);
     }
 
     return <>
         <Header />
         <div className=" bg-gray-50 h-screen">
-            <div className="flex items-center justify-center min-h-2/3 p-9">
-                <div className="border border-gray-300 rounded-xl p-6 shadow-md bg-white w-full max-w-2/6 flex flex-col items-center space-y-4 text-center">
-                    <h1 className="font-bold text-xl">Ajout de Bière</h1>
+            {
+                brasseries && brasseries.length == 0 && <CustomText text="Veuillez ajouter une brasserie avant d'ajouter une biere !" />
+            }
+            {
+                brasseries && brasseries.length > 0 &&
+                <div className="flex items-center justify-center min-h-2/3 p-9">
+                    <div className="border border-gray-300 rounded-xl p-6 shadow-md bg-white w-full max-w-2/6 flex flex-col items-center space-y-4 text-center">
+                        <h1 className="font-bold text-xl">Ajout de Bière</h1>
 
-                    <CustomInput text={nomBiere} setText={setNomBiere} placeholder="Nom" className="w-full" label="Nom :" />
-                    <CustomInput text={degre} setText={setDegre} placeholder="Degré" className="w-full" type="number" label="Degré :" />
-                    <CustomInput text={prix} setText={setPrix} placeholder="Prix" className="w-full" type="number" label="Prix :" />
-                    {brasseries && brasseries.length > 0 && (
-                        <label>
-                            Brasserie :
-                            <select
-                                value={selectedBrasserie?.id || ""}
-                                onChange={(e) => {
-                                    const selected = brasseries.find(b => b.id === e.target.value);
-                                    setSelectedBrasserie(selected!);
-                                    console.log("Selected:", selected?.name);
-                                }}
-                            >
-                                <option value="">-- Choisir une brasserie --</option>
-                                {brasseries.map((brasserie) => (
-                                    <option key={brasserie.id} value={brasserie.id}>
-                                        {brasserie.name}
-                                    </option>
-                                ))}
-                            </select>
-                        </label>
+                        <CustomInput text={nomBiere} setText={setNomBiere} placeholder="Nom" className="w-full" label="Nom :" />
+                        <CustomInput text={degre} setText={setDegre} placeholder="Degré" className="w-full" type="number" label="Degré :" />
+                        <CustomInput text={prix} setText={setPrix} placeholder="Prix" className="w-full" type="number" label="Prix :" />
+                        {brasseries && brasseries.length > 0 && (
+                            <label>
+                                Brasserie :
+                                <select
+                                    value={selectedBrasserie?.id || ""}
+                                    onChange={(e) => {
+                                        const selected = brasseries.find(b => b.id === e.target.value);
+                                        setSelectedBrasserie(selected!);
+                                        console.log("Selected:", selected?.name);
+                                    }}
+                                >
+                                    <option value="">-- Choisir une brasserie --</option>
+                                    {brasseries.map((brasserie) => (
+                                        <option key={brasserie.id} value={brasserie.id}>
+                                            {brasserie.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </label>
 
-                    )}
-                    <CustomFileUploader label="logo :" setFile={setLogo} />
+                        )}
+                        <CustomFileUploader label="logo :" setFile={setLogo} />
 
-                    {error == "ApiError" && <p className="text-red-600 font-semibold">ERREUR LORS DE L'ENVOI DES DONNÉES</p>}
-                    {error == "champVide" && <p className="text-red-600 font-semibold">UN OU PLUSIEURS CHAMPS SONT VIDES</p>}
-                    {error == "DonneeIncorrecte" && <p className="text-red-600 font-semibold">FORMAT DE DONNEE INCORRECTE</p>}
-                    {error == "ImageVide" && <p className="text-red-600 font-semibold">IMAGE NON FOURNIE OU AU MAUVAIS FORMAT</p>}
+                        {error == "ApiError" && <p className="text-red-600 font-semibold">ERREUR LORS DE L'ENVOI DES DONNÉES</p>}
+                        {error == "champVide" && <p className="text-red-600 font-semibold">UN OU PLUSIEURS CHAMPS SONT VIDES</p>}
+                        {error == "DonneeIncorrecte" && <p className="text-red-600 font-semibold">FORMAT DE DONNEE INCORRECTE</p>}
+                        {error == "ImageVide" && <p className="text-red-600 font-semibold">IMAGE NON FOURNIE OU AU MAUVAIS FORMAT</p>}
 
-                    {isloading ? <p className="text-gray-600 italic">Envoi en cours...</p>
-                        : <CustomButton label="Envoyer" action={envoyerBiere} />}
+                        {isloading ? <p className="text-gray-600 italic">Envoi en cours...</p>
+                            : <CustomButton label="Envoyer" action={envoyerBiere} />}
+                        {ajoutReussi && <CustomText text="BIERE ENVOYE AVEC SUCCES !" className="text-green-900" />}
+                    </div>
                 </div>
-            </div>
+            }
         </div>
     </>
 }

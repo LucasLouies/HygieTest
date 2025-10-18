@@ -1,14 +1,5 @@
 const url = "https://localhost:7172/api/";
 
-export type HydraView = {
-    "@id": string,
-    "@type": string,
-    "hydra:first": string,
-    "hydra:last": string,
-    "hydra:previous": string,
-    "hydra:next": string
-}
-
 export class API {
     public static async GET(chaine: string) {
         return await fetch(url + chaine, {

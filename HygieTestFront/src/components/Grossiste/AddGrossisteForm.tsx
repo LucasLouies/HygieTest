@@ -2,11 +2,16 @@ import { useState } from "react";
 import { CustomButton } from "../ui/CustomButton";
 import { CustomInput } from "../ui/CustomInput";
 import { postGrossiste, type PostGrossiste } from "../../api/Grossistes/postGrossiste";
+import type { Grossiste } from "../../api/Grossistes/getAllGrossistes";
 //import { postGrossiste, type PostGrossiste } from "../../api/Grossistes/postGrossiste";
 
 type AddGrossisteError = "NoError" | "champVide" | "ApiError"
 
-export function AddGrossisteForm() {
+type AddGrossisteFormProps = {
+    ajouterGrossiste: (grossiste: Grossiste) => void
+}
+
+export function AddGrossisteForm({ ajouterGrossiste }: AddGrossisteFormProps) {
     const [nomGrossiste, setNomGrossiste] = useState("");
     const [error, setError] = useState<AddGrossisteError>("NoError");
     const [isloading, setIsLoading] = useState(false);
@@ -26,13 +31,15 @@ export function AddGrossisteForm() {
         const tmpGrossiste: PostGrossiste = {
             Name: nomGrossiste,
         }
-        const result = postGrossiste(tmpGrossiste);
+        const result = await postGrossiste(tmpGrossiste);
 
         if (result == null) {
             setError("ApiError");
+        } else {
+            setIsLoading(false);
+            ajouterGrossiste(result);
         }
 
-        setIsLoading(false);
     }
 
     return <>

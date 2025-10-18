@@ -5,9 +5,9 @@ import { EtiquetteBiere } from "../ui/EtiquetteBiere";
 import { getAllGrossistes, type Grossiste } from "../../api/Grossistes/getAllGrossistes";
 import { getAllBrasseries, type Brasserie } from "../../api/Brasseries/getAllBrasseries";
 import { getAllBiereFromGrossisteId } from "../../api/Bieres/getAllBiereFromGrossisteId";
-import { getAllBieresFromBrasserieId } from "../../api/Bieres/getAllBieresFromBrasserieId";
+import { CustomInput } from "../ui/CustomInput";
 
-export function Acceuil() {
+export function Accueil() {
     const [bieres, setBieres] = useState<Biere[] | null>(null);
     const [displayedBieres, setDisplayedBieres] = useState<Biere[] | null>(null);
     const [error, setError] = useState(false);
@@ -15,6 +15,7 @@ export function Acceuil() {
     const [brasseries, setBrasseries] = useState<Brasserie[] | null>(null);
     const [selectedGrossiste, setSelectedGrossiste] = useState<Grossiste | null>(null);
     const [selectedBrasserie, setSelectedBrasserie] = useState<Brasserie | null>(null);
+    const [recherche, setRecherche] = useState("");
 
     useLayoutEffect(() => {
         const initBieres = async () => {
@@ -52,56 +53,41 @@ export function Acceuil() {
     }, [])
 
     useEffect(() => {
-        setError(false);
-        const filterBiere = async () => {
-            if (selectedBrasserie == null && selectedGrossiste == null && bieres != null) {
-                setDisplayedBieres([...bieres])
-                return;
-            } else {
-                if (selectedBrasserie && selectedGrossiste) {
-                    const tmpBiereBrasserie: Biere[] | null = await getAllBieresFromBrasserieId(selectedBrasserie.id);
-                    const tmpBiereGrossiste: Biere[] | null = await getAllBiereFromGrossisteId(selectedGrossiste.id);
+        const filterBieres = async () => {
+            if (!bieres) return;
 
-                    const tmpBieresDisplay: Biere[] = [];
-                    if (tmpBiereBrasserie && tmpBiereGrossiste) {
-                        tmpBiereBrasserie.forEach(biereBrasserie => {
-                            tmpBiereGrossiste.forEach(biereGrossiste => {
-                                if (biereBrasserie.id == biereGrossiste.id) {
-                                    tmpBieresDisplay.push(biereBrasserie);
-                                }
-                            });
-                        });
-                        setDisplayedBieres(tmpBieresDisplay);
-                    } else {
-                        setError(true)
-                    }
-                } else if (selectedBrasserie) {
-                    const tmpBiere: Biere[] | null = await getAllBieresFromBrasserieId(selectedBrasserie.id);
-                    if (tmpBiere == null) {
-                        setError(true);
-                    } else {
-                        setDisplayedBieres(tmpBiere);
-                    }
-                } else if (selectedGrossiste) {
-                    const tmpBiere: Biere[] | null = await getAllBiereFromGrossisteId(selectedGrossiste.id);
-                    if (tmpBiere == null) {
-                        setError(true);
-                    } else {
-                        setDisplayedBieres(tmpBiere);
-                    }
+            let filtered = [...bieres];
+
+            if (selectedBrasserie) {
+                filtered = filtered.filter(b => b.brasseriesId === selectedBrasserie.id);
+            }
+
+            if (selectedGrossiste) {
+                const tmpBiereGrossiste = await getAllBiereFromGrossisteId(selectedGrossiste.id);
+                if (tmpBiereGrossiste) {
+                    const ids = tmpBiereGrossiste.map(b => b.id);
+                    filtered = filtered.filter(b => ids.includes(b.id));
                 }
             }
 
-        }
-        filterBiere();
+            if (recherche.trim() !== "") {
+                filtered = filtered.filter(b =>
+                    b.name.toLowerCase().includes(recherche.toLowerCase())
+                );
+            }
 
-    }, [selectedBrasserie, selectedGrossiste])
+            setDisplayedBieres(filtered);
+        };
+
+        filterBieres();
+    }, [selectedBrasserie, selectedGrossiste, recherche, bieres]);
+
 
     return <>
         <Header />
+        <CustomInput placeholder="Recherche" setText={setRecherche} text={recherche} className="w-11/12 ml-2 mr-4 center" />
         <div className="flex-row flex w-full">
             <div className="flex-1">
-
                 {
                     brasseries && brasseries.length > 0 && (
                         <div className="w-full">

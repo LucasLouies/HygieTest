@@ -95,7 +95,7 @@ export function FormDevis({ stock, addLigneDevis }: FormDevisProps) {
                 </div>
             </div>
             <div className="flex-1 w-full">
-                <CustomButton action={checkAddLigneDevis} label="Envoyer" />
+                <CustomButton action={checkAddLigneDevis} label="Ajouter au devis" />
             </div>
         </div>
     </div>

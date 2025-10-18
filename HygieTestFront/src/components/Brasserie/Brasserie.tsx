@@ -24,6 +24,11 @@ export function Brasserie() {
         initBrasseries()
     }, [])
 
+    function ajouterBrasserie(brasserie: Brasserie) {
+        if (brasseries != null)
+            setBrasseries([...brasseries, brasserie])
+    }
+
     return <>
         <Header />
         <div className=" bg-gray-50 h-screen">
@@ -47,7 +52,7 @@ export function Brasserie() {
             <CustomButton label="Ajouter Brasserie" action={() => setOpenBrasserieForm(!openBrasserieForm)} />
             <div>
                 {
-                    openBrasserieForm && <AddBrasserieForm />
+                    openBrasserieForm && <AddBrasserieForm ajouterBrasserie={ajouterBrasserie} />
                 }
             </div>
 

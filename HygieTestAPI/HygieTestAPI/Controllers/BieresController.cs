@@ -66,7 +66,10 @@ namespace HygieTestAPI.Controllers
         [Route("{biereId}")]
         public async Task<ActionResult> getBiereFromId(Guid biereId) 
         { 
-            var Biere = await dbContext.bieres.Where(b => b.Id == biereId).ToListAsync();
+            var Biere = await dbContext.bieres
+                .Where(b => b.Id == biereId)
+                .OrderBy(b => b.Id)
+                .ToListAsync();
 
             return Ok(Biere[0]);
         }
@@ -77,13 +80,16 @@ namespace HygieTestAPI.Controllers
         {
             var stockGrossiste = await dbContext.stocks
                 .Where(s => s.GrossistesId == grossisteId)
+                .OrderBy(b => b.BieresId)
                 .ToListAsync();
 
             var listBiere = new List<Bieres>();
 
             foreach (var stock in stockGrossiste)
             {
-                var Biere = await dbContext.bieres.Where(b => b.Id == stock.BieresId).ToListAsync();
+                var Biere = await dbContext.bieres
+                    .Where(b => b.Id == stock.BieresId)
+                    .ToListAsync();
                 listBiere.Add(Biere[0]);
             }
 
@@ -94,7 +100,9 @@ namespace HygieTestAPI.Controllers
         [Route("Brasserie/{brasserieId}")]
         public async Task<ActionResult> GetBieresFromBrasserie(Guid brasserieId)
         {
-            var bieresFromBrasserie = await dbContext.bieres.Where(b => b.BrasseriesId == brasserieId).ToListAsync();
+            var bieresFromBrasserie = await dbContext.bieres
+                .Where(b => b.BrasseriesId == brasserieId)
+                .ToListAsync();
             return Ok(bieresFromBrasserie);
         }
 

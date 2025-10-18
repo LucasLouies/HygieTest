@@ -3,21 +3,23 @@ import { CustomButton } from "../ui/CustomButton";
 import { getAllBieres, type Biere } from "../../api/Bieres/getAllBieres";
 import { CustomInput } from "../ui/CustomInput";
 import { postStock, type PostStock } from "../../api/Stock/postStock";
+import type { Stock } from "../../api/Stock/getStockFromGrossiste";
 //import { CustomInput } from "../ui/CustomInput";
 //import { postStock, type PostStock } from "../../api/Stocks/postStock";
 
 type AddStockError = "NoError" | "champVide" | "ApiError" | "ImageVide" | "DonneeIncorrecte"
 
 export type AddStockFormProps = {
-    idGrossiste: string
+    idGrossiste: string,
+    ajouterStock: (stock: Stock) => void
 }
 
-export function AddStockForm({ idGrossiste }: AddStockFormProps) {
+export function AddStockForm({ idGrossiste, ajouterStock }: AddStockFormProps) {
     const [error, setError] = useState<AddStockError>("NoError");
     const [isloading, setIsLoading] = useState(false);
     const [bieres, setBieres] = useState<Biere[] | null>(null);
     const [selectedBiere, setSelectedBiere] = useState<Biere | null>(null);
-    const [quantite, setQuantite] = useState("")
+    const [quantite, setQuantite] = useState("");
 
     useLayoutEffect(() => {
         const initBieres = async () => {
@@ -54,13 +56,15 @@ export function AddStockForm({ idGrossiste }: AddStockFormProps) {
             grossisteId: idGrossiste,
             quantite: quantiteStock
         }
-        const result = postStock(tmpStock);
+        const result = await postStock(tmpStock);
 
         if (result == null) {
             setError("ApiError");
+        } else {
+            ajouterStock(result)
+            setIsLoading(false);
         }
 
-        setIsLoading(false);
     }
 
     return <>

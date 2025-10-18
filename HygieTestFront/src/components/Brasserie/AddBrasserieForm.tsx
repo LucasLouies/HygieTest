@@ -3,10 +3,15 @@ import { CustomButton } from "../ui/CustomButton";
 import { CustomFileUploader } from "../ui/CustomFileUploader";
 import { CustomInput } from "../ui/CustomInput";
 import { postBrasserie, type PostBrasserie } from "../../api/Brasseries/postBrasserie";
+import type { Brasserie } from "../../api/Brasseries/getAllBrasseries";
 
 type AddBrasserieError = "NoError" | "champVide" | "ApiError" | "ImageVide"
 
-export function AddBrasserieForm() {
+type AddBrasserieFormProps = {
+    ajouterBrasserie: (brasserie: Brasserie) => void
+}
+
+export function AddBrasserieForm({ ajouterBrasserie }: AddBrasserieFormProps) {
     const [nomBrasserie, setNomBrasserie] = useState("");
     const [logo, setLogo] = useState<File | null>(null)
     const [error, setError] = useState<AddBrasserieError>("NoError");
@@ -33,13 +38,16 @@ export function AddBrasserieForm() {
             name: nomBrasserie,
             logoFile: logo
         }
-        const result = postBrasserie(tmpBrasserie);
+        const result = await postBrasserie(tmpBrasserie);
 
         if (result == null) {
             setError("ApiError");
+        } else {
+            ajouterBrasserie(result)
+            setIsLoading(false);
+
         }
 
-        setIsLoading(false);
     }
 
     return <>

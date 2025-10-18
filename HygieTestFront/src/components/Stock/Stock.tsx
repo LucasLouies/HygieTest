@@ -17,6 +17,21 @@ export function Stock() {
 
     const [error, setError] = useState<Error>("NoError");
 
+    function ajouterStock(newStock: Stock) {
+
+        if (stock != null) {
+            for (let index = 0; index < stock.length; index++) {
+                if (stock[index].bieresId == newStock.bieresId) {
+                    var tmpStock = [...stock];
+                    tmpStock[index].quantite = newStock.quantite
+                    setStock(tmpStock);
+                    return;
+                }
+            }
+            setStock([...stock, newStock])
+        }
+    }
+
     useLayoutEffect(() => {
         const initStock = async () => {
             if (grossistes == null) {
@@ -76,7 +91,7 @@ export function Stock() {
                 openStockForm && selectedGrossiste == null && <CustomText text="Veuillez choisir un grossiste !" />
             }
             {
-                openStockForm && selectedGrossiste && <AddStockForm idGrossiste={selectedGrossiste.id} />
+                openStockForm && selectedGrossiste && <AddStockForm idGrossiste={selectedGrossiste.id} ajouterStock={ajouterStock} />
             }
         </div>
 

@@ -24,6 +24,11 @@ export function Grossiste() {
         initGrossistes()
     }, [])
 
+    function ajouterGrossiste(grossiste: Grossiste) {
+        if (grossistes != null)
+            setGrossistes([...grossistes, grossiste])
+    }
+
     return <>
         <Header />
         <div className=" bg-gray-50 h-screen">
@@ -38,7 +43,7 @@ export function Grossiste() {
                 })
             }
             <CustomButton label="Ajouter Grossiste" action={() => setOpenGrossisteForm(!openGrossisteForm)} />
-            {openGrossisteForm && <AddGrossisteForm />}
+            {openGrossisteForm && <AddGrossisteForm ajouterGrossiste={ajouterGrossiste} />}
         </div>
     </>
 }

@@ -1,8 +1,20 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Bieres\\1385d8e0-737b-4aa6-a198-291723637a88.jpg",
+      "PackagePath": "staticwebassets\\images\\Bieres\\1385d8e0-737b-4aa6-a198-291723637a88.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Bieres\\6a0dc0e9-3adf-44d7-bdd5-c7dc87eb2566.png",
+      "PackagePath": "staticwebassets\\images\\Bieres\\6a0dc0e9-3adf-44d7-bdd5-c7dc87eb2566.png"
+    },
+    {
       "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Bieres\\97e8b2dd-283d-46dd-b9f4-436e00d0f71b.png",
       "PackagePath": "staticwebassets\\images\\Bieres\\97e8b2dd-283d-46dd-b9f4-436e00d0f71b.png"
+    },
+    {
+      "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Bieres\\ac1667b1-ba79-4742-8ec3-ee6c7a3d69cd.png",
+      "PackagePath": "staticwebassets\\images\\Bieres\\ac1667b1-ba79-4742-8ec3-ee6c7a3d69cd.png"
     },
     {
       "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Bieres\\c9ad43d8-c614-43bb-95a0-61dd87dcc819.jpg",
@@ -11,6 +23,30 @@
     {
       "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Bieres\\fb383513-7e0e-4b9a-ab62-b311310cf14a.jpg",
       "PackagePath": "staticwebassets\\images\\Bieres\\fb383513-7e0e-4b9a-ab62-b311310cf14a.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Brasseries\\06c8cabe-62aa-4558-a4cf-5f2db171e4ef.png",
+      "PackagePath": "staticwebassets\\images\\Brasseries\\06c8cabe-62aa-4558-a4cf-5f2db171e4ef.png"
+    },
+    {
+      "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Brasseries\\2825ce98-8737-4b8d-914b-933212bb5525.jpg",
+      "PackagePath": "staticwebassets\\images\\Brasseries\\2825ce98-8737-4b8d-914b-933212bb5525.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Brasseries\\6ddf7698-650e-42a0-a1b6-450b11d61b70.jpg",
+      "PackagePath": "staticwebassets\\images\\Brasseries\\6ddf7698-650e-42a0-a1b6-450b11d61b70.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Brasseries\\704db001-1748-482c-84e9-defe00b0c21d.jpg",
+      "PackagePath": "staticwebassets\\images\\Brasseries\\704db001-1748-482c-84e9-defe00b0c21d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Brasseries\\7f818d06-1647-4847-879d-cff68b46f4d4.jpg",
+      "PackagePath": "staticwebassets\\images\\Brasseries\\7f818d06-1647-4847-879d-cff68b46f4d4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Brasseries\\9f9f3673-c95f-436e-a0d1-ff5e77c723aa.jpg",
+      "PackagePath": "staticwebassets\\images\\Brasseries\\9f9f3673-c95f-436e-a0d1-ff5e77c723aa.jpg"
     },
     {
       "Id": "C:\\Users\\lucas\\Desktop\\Test Hygie\\HygieTestAPI\\HygieTestAPI\\wwwroot\\images\\Brasseries\\ad80452f-ad85-4d4f-ba8a-8ebcb7fa60a5.png",

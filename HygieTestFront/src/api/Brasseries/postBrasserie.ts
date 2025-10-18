@@ -6,10 +6,6 @@ export type PostBrasserie = {
     "logoFile": File
 }
 
-export type PostBrasserieResponse = {
-    brasserieAjoute: Brasserie
-}
-
 export async function postBrasserie(brasserie: PostBrasserie) {
     const formData = new FormData();
     formData.append("Name", brasserie.name);
@@ -18,7 +14,7 @@ export async function postBrasserie(brasserie: PostBrasserie) {
     const response = await API.POSTWITHFILE("Brasseries", formData);
 
     if (response.ok) {
-        const responseBrasserie = await response.json() as PostBrasserieResponse;
+        const responseBrasserie = await response.json() as Brasserie;
         return responseBrasserie;
     }
 

@@ -8,7 +8,7 @@ export type PostGrossiste = {
 export async function postGrossiste(grossiste: PostGrossiste) {
     const response = await API.POST("Grossistes", grossiste);
     if (response.ok) {
-        const reponseGrossiste = await response.json() as Grossiste[];
+        const reponseGrossiste = await response.json() as Grossiste;
         return reponseGrossiste;
     }
 
