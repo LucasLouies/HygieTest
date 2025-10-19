@@ -1,4 +1,4 @@
-const url = "https://localhost:7172/api/";
+const url = import.meta.env.VITE_URL_API || "https://localhost:7172/api/";
 
 export class API {
     public static async GET(chaine: string) {

@@ -4,6 +4,11 @@ import { getAllBrasseries, type Brasserie } from "../../api/Brasseries/getAllBra
 import { CustomButton } from "../ui/CustomButton";
 import { AddBrasserieForm } from "./AddBrasserieForm";
 import { AffichageBrasserie } from "./AffichageBrasserie";
+import { CustomText } from "../ui/CustomText";
+
+/**
+ * page de gestion des brasseries
+ */
 
 export function Brasserie() {
     const [brasseries, setBrasseries] = useState<Brasserie[] | null>(null);
@@ -31,7 +36,11 @@ export function Brasserie() {
 
     return <>
         <Header />
+
         <div className=" bg-gray-50 h-screen">
+            <div className="w-screen text-center mt-2">
+                <CustomText text="Liste des brasseries" size={4} title />
+            </div>
             <div>
                 {
                     error && <p>ERREUR LORS DU CHARGEMENT DE DONNEES</p>

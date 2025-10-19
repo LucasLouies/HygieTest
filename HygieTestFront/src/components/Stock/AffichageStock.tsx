@@ -10,6 +10,12 @@ export type AffichageStockProps = {
     grossiste: Grossiste
 }
 
+/**
+ * élément qui permet l'affichage du stock d'un grossiste
+ * @param stock le stock à afficher
+ * @param grossiste le grossiste
+ */
+
 export function AffichageStock({ stock, grossiste }: AffichageStockProps) {
 
     return <>
@@ -41,8 +47,6 @@ function AffichageLigneStock({ biereId, grossiste, quantite }: AffichageLigneSto
                 setError("ApiErrorBiere");
                 return;
             }
-            console.log(tmpBiere);
-
             setBiere(tmpBiere)
         }
         initBiere();

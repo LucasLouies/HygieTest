@@ -5,6 +5,14 @@ type CustomTextProps = {
     className?: string;
 }
 
+/**
+ * le text de base du site
+ * @param size la taille du text
+ * @param title bool qui représente si le texte est un titre ou non
+ * @param text le texte à afficher
+ * @param className le style css tailwind à mettre sur le container du texte
+ */
+
 export function CustomText({ size, title, text, className }: CustomTextProps) {
     switch (size) {
         case 1:

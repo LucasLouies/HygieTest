@@ -6,6 +6,11 @@ import { getAllGrossistes, type Grossiste } from "../../api/Grossistes/getAllGro
 import { getAllBrasseries, type Brasserie } from "../../api/Brasseries/getAllBrasseries";
 import { getAllBiereFromGrossisteId } from "../../api/Bieres/getAllBiereFromGrossisteId";
 import { CustomInput } from "../ui/CustomInput";
+import { CustomSelect } from "../ui/CustomSelect";
+
+/**
+ * la page d'accueil
+ */
 
 export function Accueil() {
     const [bieres, setBieres] = useState<Biere[] | null>(null);
@@ -85,48 +90,32 @@ export function Accueil() {
 
     return <>
         <Header />
-        <CustomInput placeholder="Recherche" setText={setRecherche} text={recherche} className="w-11/12 ml-2 mr-4 center" />
-        <div className="flex-row flex w-full">
-            <div className="flex-1">
+        <div className="flex justify-center w-full">
+            <div className="w-3/4">
+                <CustomInput placeholder="Recherche" setText={setRecherche} text={recherche} className="w-full" />
+            </div>
+        </div>
+        <div className="flex-row flex w-full px-5">
+            <div className="flex-1 px-5">
                 {
-                    brasseries && brasseries.length > 0 && (
-                        <div className="w-full">
-                            <select
-                                value={selectedBrasserie?.id || ""}
-                                onChange={(e) => {
-                                    const selected = brasseries.find(b => b.id === e.target.value);
-                                    setSelectedBrasserie(selected!);
-                                }}
-                            >
-                                <option value="">-- Choisir une brasserie --</option>
-                                {brasseries.map((brasserie) => (
-                                    <option key={brasserie.id} value={brasserie.id}>
-                                        {brasserie.name}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>)
+                    brasseries && brasseries.length > 0 &&
+                    <CustomSelect
+                        label="-- Choisir une brasserie --"
+                        selectedElement={selectedBrasserie}
+                        table={brasseries}
+                        setSelectedElement={(brasserie: Brasserie) => setSelectedBrasserie(brasserie)}
+
+                    />
                 }
             </div>
-            <div className="flex-1">
+            <div className="flex-1 px-5">
                 {
-                    grossistes && grossistes.length > 0 && (
-                        <div className="w-full">
-                            <select
-                                value={selectedGrossiste?.id || ""}
-                                onChange={(e) => {
-                                    const selected = grossistes.find(b => b.id === e.target.value);
-                                    setSelectedGrossiste(selected!);
-                                }}
-                            >
-                                <option value="">-- Choisir un grossiste --</option>
-                                {grossistes.map((grossiste) => (
-                                    <option key={grossiste.id} value={grossiste.id}>
-                                        {grossiste.name}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>)
+                    grossistes && grossistes.length > 0 &&
+                    <CustomSelect
+                        label="-- Choisir un grossiste --"
+                        selectedElement={selectedGrossiste}
+                        table={grossistes}
+                        setSelectedElement={(grossiste: Grossiste) => setSelectedGrossiste(grossiste)} />
                 }
             </div>
         </div>

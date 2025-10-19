@@ -15,6 +15,13 @@ export type ErreurCheckDevis = {
     "message": string
 }
 
+/**
+ * 
+ * @param ligneDevis toutes les lignes du devis à vérifier
+ * @param idGrossiste le guid du grossite chez qui on essaye de faire un devis
+ * @returns true si il n'y a pas d'erreur dans le devis soumis ou un message d'erreur (contenant toutes les erreurs divisées par un \n en une seule string)
+ */
+
 export async function checkDevis(ligneDevis: LigneDevis[], idGrossiste: string) {
     var tmpCheckDevis: CheckDevis = {
         lignesDevis: [],

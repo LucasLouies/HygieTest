@@ -8,6 +8,7 @@ import type { Biere } from "../../api/Bieres/getAllBieres";
 import { AffichageLigneDevis } from "./AffichageLigneDevis";
 import { CustomButton } from "../ui/CustomButton";
 import { checkDevis, type ErreurCheckDevis } from "../../api/Devis/checkDevis";
+import { CustomSelect } from "../ui/CustomSelect";
 
 type Error = "NoError" | "ErrorApi";
 
@@ -16,6 +17,10 @@ export type LigneDevis = {
     quantite: number,
 }
 
+/**
+ * page de gestion de devis
+ */
+
 export function Devis() {
     const [grossistes, setGrossistes] = useState<Grossiste[] | null>(null);
     const [selectedGrossiste, setSelectedGrossiste] = useState<Grossiste | null>(null);
@@ -23,6 +28,7 @@ export function Devis() {
     const [stock, setStock] = useState<Stock[] | null>(null);
     const [error, setError] = useState<Error>("NoError");
     const [messageErreur, setMessageErreur] = useState<ErreurCheckDevis | null>(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const addLigneDevis = (ligneDevis: LigneDevis) => {
         var tmpDevis = [...devis];
@@ -40,7 +46,9 @@ export function Devis() {
     }
 
     useLayoutEffect(() => {
+        setStock(null);
         const initStock = async () => {
+            setIsLoading(true);
             if (grossistes == null) {
                 const tmpGrossiste = await getAllGrossistes();
 
@@ -55,25 +63,42 @@ export function Devis() {
                     setStock(tmpStock);
                 }
             }
-
+            setIsLoading(false);
         }
         initStock();
+        setDevis([]);
+        setMessageErreur(null);
     }, [selectedGrossiste])
 
     function getTotal() {
+        var nbrBiereDevis = 0;
+        var reduction = 0;
         var total = 0;
         devis.forEach(ligneDevis => {
-            total += ligneDevis.quantite * ligneDevis.biere.prix
+            nbrBiereDevis += ligneDevis.quantite;
+            total += ligneDevis.quantite * ligneDevis.biere.prix;
         });
 
+        if (nbrBiereDevis > 9) {
+            if (nbrBiereDevis > 19) {
+                reduction = Number((total * 0.2).toFixed(2))
+            } else {
+                reduction = Number((total * 0.1).toFixed(2))
+            }
+        }
+        if (reduction != 0) {
+            return total + "€ - " + reduction + "€ (réduction) = " + (total - reduction);
+        }
+
         return total;
+
     }
 
     async function verifDevis() {
         if (selectedGrossiste) {
             const result = await checkDevis(devis, selectedGrossiste.id);
             if (result == true) {
-                setMessageErreur(null)
+                setMessageErreur({ message: "Le devis est valide !" })
             } else {
                 setMessageErreur(result);
             }
@@ -83,23 +108,17 @@ export function Devis() {
     return <>
         <Header />
         {
-            grossistes && grossistes.length > 0 && (
-                <div className="w-full">
-                    <select
-                        value={selectedGrossiste?.id || ""}
-                        onChange={(e) => {
-                            const selected = grossistes.find(b => b.id === e.target.value);
-                            setSelectedGrossiste(selected!);
-                        }}
-                    >
-                        <option value="">-- Choisir un grossiste --</option>
-                        {grossistes.map((grossiste) => (
-                            <option key={grossiste.id} value={grossiste.id}>
-                                {grossiste.name}
-                            </option>
-                        ))}
-                    </select>
-                </div>)
+            grossistes && grossistes.length > 0 &&
+            <div className="w-full flex items-center justify-center mt-2">
+                <div className="w-1/2">
+                    <CustomSelect
+                        label="-- Choisir un grossiste --"
+                        selectedElement={selectedGrossiste}
+                        table={grossistes}
+                        setSelectedElement={(grossiste: Grossiste) => setSelectedGrossiste(grossiste)} />
+                </div>
+            </div>
+
         }
         {
             devis.length > 0 && devis.map((ligneDevis) => {
@@ -113,16 +132,22 @@ export function Devis() {
             </div>
         }
         {
-            messageErreur && <CustomText text={messageErreur.message} />
+            messageErreur &&
+            <div className="w-full text-center">
+                <CustomText text={messageErreur.message} />
+            </div>
         }
         {
-            <CustomButton action={verifDevis} label="Envoyer le Devis" />
+            devis.length > 0 &&
+            <div className="flex justify-center w-full">
+                <CustomButton action={verifDevis} label="Vérifier le Devis" />
+            </div>
         }
         {
             selectedGrossiste && stock && stock.length == 0 && <CustomText text="CE GROSSISTE NE PROPOSE PAS DE BIERES POUR LE MOMENT !" />
         }
         {
-            selectedGrossiste && stock && stock.length > 0 && <FormDevis stock={stock} addLigneDevis={addLigneDevis} />
+            selectedGrossiste && stock && stock.length > 0 && !isLoading && <FormDevis stock={stock} addLigneDevis={addLigneDevis} key={selectedGrossiste.id} />
         }
     </>
 }

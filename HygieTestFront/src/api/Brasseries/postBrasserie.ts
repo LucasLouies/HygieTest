@@ -6,6 +6,12 @@ export type PostBrasserie = {
     "logoFile": File
 }
 
+/**
+ * 
+ * @param brasserie la brasserie à insérer en db
+ * @returns la brasserie qui a été insérée en db ou null en cas d'échec
+ */
+
 export async function postBrasserie(brasserie: PostBrasserie) {
     const formData = new FormData();
     formData.append("Name", brasserie.name);

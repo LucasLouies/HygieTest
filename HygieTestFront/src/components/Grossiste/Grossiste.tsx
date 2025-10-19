@@ -5,6 +5,9 @@ import { AddGrossisteForm } from "./AddGrossisteForm";
 import { getAllGrossistes, type Grossiste } from "../../api/Grossistes/getAllGrossistes";
 import { CustomText } from "../ui/CustomText";
 
+/**
+ * page qui permet la gestion des grossistes
+ */
 
 export function Grossiste() {
     const [openGrossisteForm, setOpenGrossisteForm] = useState(false);
@@ -31,7 +34,7 @@ export function Grossiste() {
 
     return <>
         <Header />
-        <div className=" bg-gray-50 h-screen">
+        <div className=" bg-gray-50 h-screen mt-2">
             <CustomText text="Liste des grossistes" className="text-center" title={true} size={4} />
             {error && <CustomText text="ERREUR LORS DU CHARGEMENT DE DONNEES" />}
             {

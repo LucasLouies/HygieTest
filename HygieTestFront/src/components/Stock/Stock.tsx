@@ -6,8 +6,13 @@ import { CustomText } from "../ui/CustomText";
 import { CustomButton } from "../ui/CustomButton";
 import { AddStockForm } from "./AddStockForm";
 import { AffichageStock } from "./AffichageStock";
+import { CustomSelect } from "../ui/CustomSelect";
 
 type Error = "NoError" | "ErrorApi";
+
+/**
+ * la page de gestion du stock de tous les grossistes
+ */
 
 export function Stock() {
     const [grossistes, setGrossistes] = useState<Grossiste[] | null>(null);
@@ -53,31 +58,19 @@ export function Stock() {
         initStock();
     }, [selectedGrossiste])
 
-
-
     return <>
         <Header />
         {
-            grossistes && grossistes.length > 0 && (
-                <div className="w-full">
-                    <label>
-                        Grossiste :
-                        <select
-                            value={selectedGrossiste?.id || ""}
-                            onChange={(e) => {
-                                const selected = grossistes.find(b => b.id === e.target.value);
-                                setSelectedGrossiste(selected!);
-                            }}
-                        >
-                            <option value="">-- Choisir un grossiste --</option>
-                            {grossistes.map((grossiste) => (
-                                <option key={grossiste.id} value={grossiste.id}>
-                                    {grossiste.name}
-                                </option>
-                            ))}
-                        </select>
-                    </label>
-                </div>)
+            grossistes && grossistes.length > 0 &&
+            <div className="w-full flex items-center justify-center mt-2">
+                <div className="w-1/2">
+                    <CustomSelect
+                        label="-- Choisir un grossiste --"
+                        selectedElement={selectedGrossiste}
+                        table={grossistes}
+                        setSelectedElement={(grossiste: Grossiste) => setSelectedGrossiste(grossiste)} />
+                </div>
+            </div>
         }
         {
             stock && stock.length == 0 && <CustomText text="STOCK DU GROSSISTE VIDE !" size={4} />

@@ -3,6 +3,12 @@ type ButtonProps = {
     label: string;
 }
 
+/**
+ * l'élément qui sert de bouton standard dans le site web
+ * @param action l'action à faire quand le bouton est appuyé
+ * @param label le label à afficher dans le bouton
+ */
+
 export function CustomButton({ action, label }: ButtonProps) {
     return <>
         <button onClick={action}

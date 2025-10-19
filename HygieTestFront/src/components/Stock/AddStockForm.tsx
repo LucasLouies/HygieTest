@@ -4,6 +4,7 @@ import { getAllBieres, type Biere } from "../../api/Bieres/getAllBieres";
 import { CustomInput } from "../ui/CustomInput";
 import { postStock, type PostStock } from "../../api/Stock/postStock";
 import type { Stock } from "../../api/Stock/getStockFromGrossiste";
+import { CustomSelect } from "../ui/CustomSelect";
 //import { CustomInput } from "../ui/CustomInput";
 //import { postStock, type PostStock } from "../../api/Stocks/postStock";
 
@@ -13,6 +14,12 @@ export type AddStockFormProps = {
     idGrossiste: string,
     ajouterStock: (stock: Stock) => void
 }
+
+/**
+ * formulaire qui permet d'ajouter ou modifier le stock d'un grossiste
+ * @param idGrossiste le grossiste qui gere son stock
+ * @param ajouterStock méthode qui permet d'ajouter du stock
+ */
 
 export function AddStockForm({ idGrossiste, ajouterStock }: AddStockFormProps) {
     const [error, setError] = useState<AddStockError>("NoError");
@@ -74,26 +81,12 @@ export function AddStockForm({ idGrossiste, ajouterStock }: AddStockFormProps) {
                     <h1 className="font-bold text-xl">Ajout de Stock</h1>
 
                     {
-                        bieres && bieres.length > 0 && (
-                            <div className="w-full">
-                                <label>
-                                    Biere :
-                                    <select
-                                        value={selectedBiere?.id || ""}
-                                        onChange={(e) => {
-                                            const selected = bieres.find(b => b.id === e.target.value);
-                                            setSelectedBiere(selected!);
-                                        }}
-                                    >
-                                        <option value="">-- Choisir une Biere --</option>
-                                        {bieres.map((biere) => (
-                                            <option key={biere.id} value={biere.id}>
-                                                {biere.name}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </label>
-                            </div>)
+                        bieres && bieres.length > 0 &&
+                        <CustomSelect
+                            label="-- Choisir une Biere --"
+                            selectedElement={selectedBiere}
+                            table={bieres}
+                            setSelectedElement={(biere: Biere) => setSelectedBiere(biere)} />
                     }
 
                     <CustomInput label="Quantité" type="number" placeholder="Choisis une quantite" text={quantite} setText={setQuantite} />

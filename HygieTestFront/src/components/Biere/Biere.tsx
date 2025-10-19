@@ -6,10 +6,15 @@ import { postBiere, type PostBiere } from "../../api/Bieres/postBiere";
 import { CustomFileUploader } from "../ui/CustomFileUploader";
 import { getAllBrasseries, type Brasserie } from "../../api/Brasseries/getAllBrasseries";
 import { CustomText } from "../ui/CustomText";
+import { CustomSelect } from "../ui/CustomSelect";
 
 type AjoutBiereError = "NoError" | "champVide" | "ApiError" | "DonneeIncorrecte" | "ImageVide";
 
-export function AjoutBiere() {
+/**
+ * la page d'ajout de biere
+ */
+
+export function Biere() {
     const [nomBiere, setNomBiere] = useState("");
     const [degre, setDegre] = useState("");
     const [prix, setPrix] = useState("");
@@ -99,27 +104,14 @@ export function AjoutBiere() {
                         <CustomInput text={degre} setText={setDegre} placeholder="Degré" className="w-full" type="number" label="Degré :" />
                         <CustomInput text={prix} setText={setPrix} placeholder="Prix" className="w-full" type="number" label="Prix :" />
                         {brasseries && brasseries.length > 0 && (
-                            <label>
-                                Brasserie :
-                                <select
-                                    value={selectedBrasserie?.id || ""}
-                                    onChange={(e) => {
-                                        const selected = brasseries.find(b => b.id === e.target.value);
-                                        setSelectedBrasserie(selected!);
-                                        console.log("Selected:", selected?.name);
-                                    }}
-                                >
-                                    <option value="">-- Choisir une brasserie --</option>
-                                    {brasseries.map((brasserie) => (
-                                        <option key={brasserie.id} value={brasserie.id}>
-                                            {brasserie.name}
-                                        </option>
-                                    ))}
-                                </select>
-                            </label>
-
+                            <CustomSelect
+                                label="-- Choisir une brasserie --"
+                                selectedElement={selectedBrasserie}
+                                table={brasseries}
+                                setSelectedElement={(brasserie: Brasserie) => setSelectedBrasserie(brasserie)}
+                            />
                         )}
-                        <CustomFileUploader label="logo :" setFile={setLogo} />
+                        <CustomFileUploader label="Logo :" setFile={setLogo} />
 
                         {error == "ApiError" && <p className="text-red-600 font-semibold">ERREUR LORS DE L'ENVOI DES DONNÉES</p>}
                         {error == "champVide" && <p className="text-red-600 font-semibold">UN OU PLUSIEURS CHAMPS SONT VIDES</p>}

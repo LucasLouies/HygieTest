@@ -11,6 +11,11 @@ type AddBrasserieFormProps = {
     ajouterBrasserie: (brasserie: Brasserie) => void
 }
 
+/**
+ * le formulaire d'ajout de brasserie
+ * @param ajouterBrasserie la méthode qui permet d'ajouter une brasserie
+ */
+
 export function AddBrasserieForm({ ajouterBrasserie }: AddBrasserieFormProps) {
     const [nomBrasserie, setNomBrasserie] = useState("");
     const [logo, setLogo] = useState<File | null>(null)
@@ -57,7 +62,7 @@ export function AddBrasserieForm({ ajouterBrasserie }: AddBrasserieFormProps) {
                     <h1 className="font-bold text-xl">Ajout de Brasserie</h1>
 
                     <CustomInput text={nomBrasserie} setText={setNomBrasserie} placeholder="Nom" className="w-full" label="Nom :" />
-                    <CustomFileUploader label="logo :" setFile={setLogo} />
+                    <CustomFileUploader label="Logo :" setFile={setLogo} />
 
                     {error == "ApiError" && <p className="text-red-600 font-semibold">ERREUR LORS DE L'ENVOI DES DONNÉES</p>}
                     {error == "champVide" && <p className="text-red-600 font-semibold">UN OU PLUSIEURS CHAMPS SONT VIDES</p>}

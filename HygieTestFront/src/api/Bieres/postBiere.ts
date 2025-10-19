@@ -13,6 +13,11 @@ export type PostBiereResponse = {
     biereAjoute: Biere
 }
 
+/**
+ * @param biere la biere à insérer en db
+ * @returns la biere qui a été insérée en db ou null en cas d'échec
+ */
+
 export async function postBiere(biere: PostBiere) {
     const formData = new FormData();
     formData.append("Name", biere.name);

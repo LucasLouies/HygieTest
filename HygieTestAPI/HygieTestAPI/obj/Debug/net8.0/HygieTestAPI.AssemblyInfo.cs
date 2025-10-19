@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HygieTestAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a51cf0a5202a447ff8da2b510875667516acb16b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f447735ab3a0df8a1f6fe50e0925b362c799e4be")]
 [assembly: System.Reflection.AssemblyProductAttribute("HygieTestAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HygieTestAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

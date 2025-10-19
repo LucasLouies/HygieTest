@@ -11,6 +11,11 @@ type AddGrossisteFormProps = {
     ajouterGrossiste: (grossiste: Grossiste) => void
 }
 
+/**
+ * formulaire qui permet d'ajouter un grossiste
+ * @param ajouterGrossiste la méthode qui permet d'ajouter un grossiste
+ */
+
 export function AddGrossisteForm({ ajouterGrossiste }: AddGrossisteFormProps) {
     const [nomGrossiste, setNomGrossiste] = useState("");
     const [error, setError] = useState<AddGrossisteError>("NoError");

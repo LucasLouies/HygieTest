@@ -5,6 +5,11 @@ type AffichageLigneDevisProps = {
     ligneDevis: LigneDevis
 }
 
+/**
+ * élément qui permet d'afficher les informations d'une seule ligne d'un devis
+ * @param ligneDevis la ligne de devis à afficher
+ */
+
 export function AffichageLigneDevis({ ligneDevis }: AffichageLigneDevisProps) {
     return <div className="w-screen flex justify-center p-2">
         <div className="w-3/4 bg-gray-300 flex border border-black rounded-b-md overflow-hidden shadow-md text-center">

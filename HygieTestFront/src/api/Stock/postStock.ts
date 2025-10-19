@@ -7,6 +7,13 @@ export type PostStock = {
     "quantite": number
 }
 
+/**
+ * @param biereId le guid de la biere
+ * @param grossisteId le guid du grossiste
+ * @param quantite la nouvelle quantité en stock
+ * @returns le stock qui a été insérer en db ou null en cas d'echec
+ */
+
 export async function postStock({ biereId, grossisteId, quantite }: PostStock) {
     const tmpStock: PostStock = {
         biereId: biereId,

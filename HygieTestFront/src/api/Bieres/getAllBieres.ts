@@ -10,6 +10,10 @@ export type Biere = {
 
 }
 
+/**
+ * @returns toutes les bieres en db
+ */
+
 export async function getAllBieres() {
     const response = await API.GET("Bieres");
     if (response.ok) {

@@ -6,6 +6,12 @@ export type Stock = {
     quantite: number
 }
 
+/**
+ * 
+ * @param uidGrossiste le guid du grossiste dont on veut connaitre le stock
+ * @returns un tableau de stock ou null en cas d'échec
+ */
+
 export async function getStockFromGrossiste(uidGrossiste: string) {
     const response = await API.GET("Stocks/Grossiste/" + uidGrossiste);
 

@@ -1,6 +1,11 @@
 import { API } from "../api";
 import type { Biere } from "./getAllBieres";
 
+/**
+ * @param grossisteId le guid d'un grossiste
+ * @returns un tableau de biere
+ */
+
 export async function getAllBiereFromGrossisteId(grossisteId: string) {
     const response = await API.GET("Bieres/Grossiste/" + grossisteId);
 

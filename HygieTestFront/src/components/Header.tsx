@@ -3,6 +3,10 @@ import { useLocation } from "react-router"
 const baseStyle = "flex-1 text-center text-white hover:bg-slate-700 px-2 py-1 rounded";
 const selectedStyle = "flex-1 text-center text-white bg-slate-700 px-2 py-1 rounded";
 
+/**
+ * le header du site
+ */
+
 export function Header() {
     const { pathname } = useLocation();
 

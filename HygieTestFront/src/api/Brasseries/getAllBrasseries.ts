@@ -6,6 +6,10 @@ export type Brasserie = {
     "logo": string;
 }
 
+/**
+ * @returns toutes les brasseries en db
+ */
+
 export async function getAllBrasseries() {
     const response = await API.GET("Brasseries");
     if (response.ok) {
